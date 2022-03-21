@@ -16,4 +16,9 @@ export class VegetableService {
   public getAllVegies(): Observable<Vegetable[]> {
     return this.http.get<Vegetable[]>(this.urlBack + 'vegetables/');
   }
+
+  // Get by id
+  public GetById(id: number): Observable<Vegetable> {
+    return this.http.get<Vegetable>(this.http + 'vegetables/' + id);
+  }
 }

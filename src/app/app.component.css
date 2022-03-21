@@ -1,4 +1,3 @@
 main {
-  min-height: calc(100vh - 51px);
-  background-color: #efc586;
+  min-height: 100vh;
 }

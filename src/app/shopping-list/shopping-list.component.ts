@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSelect } from '@angular/material/select';
 import { Title } from '@angular/platform-browser';
 import { ShopList } from '../shared/models/ShopList.model';
 import { Vegetable } from '../shared/models/Vegetable.model';
@@ -14,7 +15,8 @@ import { VegetableService } from '../shared/services/vegetable.service';
 export class ShoppingListComponent implements OnInit {
   listForm: FormGroup;
   vegies: Vegetable[];
-  shoppingList: ShopList[];
+  shoppingLists: ShopList[];
+  selectedvegie!: number;
 
   constructor(
     private titleService: Title,
@@ -23,11 +25,11 @@ export class ShoppingListComponent implements OnInit {
     private vegetableService: VegetableService
   ) {
     this.vegies = [];
-    this.shoppingList = [];
+    this.shoppingLists = [];
 
     this.listForm = this.fb.group({
-      name: [''],
-      vegetables: [''],
+      name: ['', Validators.required],
+      vegetables: [[]],
     });
   }
 
@@ -40,14 +42,71 @@ export class ShoppingListComponent implements OnInit {
     });
 
     // Load all shopping lists
-    this.shopListService.getAllLists().subscribe((shopLists) => {
-      this.shoppingList = shopLists;
-    });
+    this.loadLists();
   }
 
   // Add new shopping list with title
   addList() {
     this.shopListService.createList(this.listForm.value).subscribe();
+    this.loadLists();
+  }
+
+  addVegieOnSelect(id: number, event: MatSelect) {
+    const currentList = this.getListById(id);
+    if (!currentList) {
+      return;
+    }
+    const vegie = this.vegies.find((element) => element.id === event.value);
+    if (!vegie) {
+      return;
+    }
+    currentList.vegetables.push(vegie);
+
+    this.shopListService.updateList(id, currentList).subscribe((list) => {
+      //replace list in array
+      const index = this.shoppingLists.findIndex(
+        (element) => element.id === id
+      );
+      this.shoppingLists[index] = list;
+    });
+  }
+
+  //delete vegetable
+  deleteVegie(id: number, vegieId: number) {
+    const currentList = this.getListById(id);
+    if (!currentList) {
+      return;
+    }
+    //erase vegies from array
+    currentList.vegetables = currentList.vegetables.filter(
+      (element) => element.id !== vegieId
+    );
+    this.shopListService.updateList(id, currentList).subscribe((list) => {
+      //replace list in array
+      const index = this.shoppingLists.findIndex(
+        (element) => element.id === id
+      );
+      this.shoppingLists[index] = list;
+    });
+  }
+
+  deleteList(id: number) {
+    this.shopListService.deleteList(id).subscribe();
+
+    //delete element from front
+    const index = this.shoppingLists.findIndex((element) => element.id === id);
+    this.shoppingLists.splice(index, 1);
+  }
+
+  getListById(id: number) {
+    return this.shoppingLists.find((element) => element.id === id);
+  }
+
+  // Load all shopping lists
+  loadLists() {
+    this.shopListService.getAllLists().subscribe((shopLists) => {
+      this.shoppingLists = shopLists;
+    });
   }
 
   // Set page title
