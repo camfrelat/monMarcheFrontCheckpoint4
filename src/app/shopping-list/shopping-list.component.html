@@ -1,37 +1,54 @@
 <div class="container">
   <h1>Mes listes</h1>
   <div>
-    <button type="button" mat-icon-button>
-      <mat-icon>note_add</mat-icon>
-    </button>
+    <h3>Ajouter une nouvelle liste</h3>
+    <form class="example-form" [formGroup]="listForm" (ngSubmit)="addList()">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Ajouter un titre</mat-label>
+        <input matInput placeholder="Ex. Quotidien" formControlName="name" />
+      </mat-form-field>
+      <button type="submit" mat-icon-button>
+        <mat-icon>library_add</mat-icon>
+      </button>
+    </form>
   </div>
 
-  <div>
-    <div>List title</div>
+  <!-- LIST TO ADD-->
+  <div *ngFor="let list of shoppingLists">
+    <div class="d-flex align-items-center">
+      <div>{{ list.name }}</div>
+      <button type="button" mat-icon-button (click)="deleteList(list.id)">
+        <mat-icon>delete_outline</mat-icon>
+      </button>
+    </div>
     <!-- SELECT VEGIES -->
     <div>
       <mat-form-field class="selectBtn">
-        <mat-label> Rechercher </mat-label>
-        <mat-select formControlname="vegie">
+        <mat-label> Légumes </mat-label>
+        <mat-select
+          #vegieValue
+          (selectionChange)="addVegieOnSelect(list.id, vegieValue)"
+        >
           <mat-option *ngFor="let vegie of vegies" [value]="vegie.id">
             {{ vegie.name }}
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <span class="input-group-append">
-        <button
-          icon-button
-          class="btn rounded-pill border-0 ml-n5 justify-content-center m-2"
-          type="button"
-        >
-          <mat-icon>search</mat-icon>
-        </button>
-      </span>
     </div>
     <!-- VEGIES -->
     <div>
-      <ul>
-        <li>Carotte</li>
+      <ul
+        class="d-flex align-items-center"
+        *ngFor="let vegie of list.vegetables"
+      >
+        <li>{{ vegie.name }}</li>
+        <button
+          mat-icon-button
+          type="button"
+          (click)="deleteVegie(list.id, vegie.id)"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
       </ul>
     </div>
   </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { VegetableService } from '../shared/models/services/vegetable.service';
+import { VegetableService } from '../shared/services/vegetable.service';
 import { Vegetable } from '../shared/models/Vegetable.model';
 
 @Component({

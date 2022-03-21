@@ -1,11 +1,17 @@
 /* General  */
-img {
-  max-width: 1800px;
+.image {
+  height: 200px;
+  width: 100%;
+  background: url("/assets/images/vegetablesHome.png");
+  background-size: cover;
 }
 
 a {
   text-decoration: none;
   color: #09393e;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .intro {
@@ -15,11 +21,17 @@ a {
 .box-link {
   border-top: solid #09393e;
   border-bottom: solid #09393e;
-  max-width: 100px;
   text-align: center;
+  padding: 0 1rem;
 }
 
 a:hover {
   color: #fee29d;
   font-weight: bold;
+}
+
+@media screen and (min-width: 768px) {
+  .image {
+    height: 300px;
+  }
 }
