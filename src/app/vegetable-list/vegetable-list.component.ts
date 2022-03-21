@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { VegetableService } from '../shared/models/services/vegetable.service';
 import { Vegetable } from '../shared/models/Vegetable.model';
 
 @Component({
@@ -9,9 +11,23 @@ import { Vegetable } from '../shared/models/Vegetable.model';
 export class VegetableListComponent implements OnInit {
   vegies: Vegetable[];
 
-  constructor() {
+  constructor(
+    private titleService: Title,
+    private vegetableService: VegetableService
+  ) {
     this.vegies = [];
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.setTitle(' Mon marché - Tous les légumes');
+
+    this.vegetableService.getAllVegies().subscribe((vegetables) => {
+      this.vegies = vegetables;
+    });
+  }
+
+  // Set page title
+  setTitle(newTitle: string) {
+    this.titleService.setTitle(newTitle);
+  }
 }
