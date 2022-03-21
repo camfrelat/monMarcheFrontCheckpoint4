@@ -1,0 +1,55 @@
+<div class="container">
+  <h1>Mes listes</h1>
+  <div>
+    <h3>Ajouter une nouvelle liste</h3>
+    <form class="example-form" [formGroup]="listForm" (ngSubmit)="addList()">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Ajouter un titre</mat-label>
+        <input matInput placeholder="Ex. Quotidien" formControlName="name" />
+      </mat-form-field>
+      <button type="submit" mat-icon-button>
+        <mat-icon>library_add</mat-icon>
+      </button>
+    </form>
+  </div>
+
+  <!-- LIST TO ADD-->
+  <div *ngFor="let list of shoppingLists">
+    <div class="d-flex align-items-center">
+      <div>{{ list.name }}</div>
+      <button type="button" mat-icon-button (click)="deleteList(list.id)">
+        <mat-icon>delete_outline</mat-icon>
+      </button>
+    </div>
+    <!-- SELECT VEGIES -->
+    <div>
+      <mat-form-field class="selectBtn">
+        <mat-label> Légumes </mat-label>
+        <mat-select
+          #vegieValue
+          (selectionChange)="addVegieOnSelect(list.id, vegieValue)"
+        >
+          <mat-option *ngFor="let vegie of vegies" [value]="vegie.id">
+            {{ vegie.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <!-- VEGIES -->
+    <div>
+      <ul
+        class="d-flex align-items-center"
+        *ngFor="let vegie of list.vegetables"
+      >
+        <li>{{ vegie.name }}</li>
+        <button
+          mat-icon-button
+          type="button"
+          (click)="deleteVegie(list.id, vegie.id)"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </ul>
+    </div>
+  </div>
+</div>
