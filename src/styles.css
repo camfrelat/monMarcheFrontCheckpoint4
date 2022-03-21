@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,300&family=Oleo+Script&family=Rajdhani:wght@300&display=swap");
+
 html,
 body {
   height: 100%;
@@ -9,6 +12,3 @@ body {
   display: flex;
   flex-direction: column;
 }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
