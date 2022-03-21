@@ -1,0 +1,38 @@
+<div class="container">
+  <h1>Mes listes</h1>
+  <div>
+    <button type="button" mat-icon-button>
+      <mat-icon>note_add</mat-icon>
+    </button>
+  </div>
+
+  <div>
+    <div>List title</div>
+    <!-- SELECT VEGIES -->
+    <div>
+      <mat-form-field class="selectBtn">
+        <mat-label> Rechercher </mat-label>
+        <mat-select formControlname="vegie">
+          <mat-option *ngFor="let vegie of vegies" [value]="vegie.id">
+            {{ vegie.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <span class="input-group-append">
+        <button
+          icon-button
+          class="btn rounded-pill border-0 ml-n5 justify-content-center m-2"
+          type="button"
+        >
+          <mat-icon>search</mat-icon>
+        </button>
+      </span>
+    </div>
+    <!-- VEGIES -->
+    <div>
+      <ul>
+        <li>Carotte</li>
+      </ul>
+    </div>
+  </div>
+</div>

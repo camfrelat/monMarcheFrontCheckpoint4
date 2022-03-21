@@ -1,0 +1,25 @@
+/* General  */
+img {
+  max-width: 1800px;
+}
+
+a {
+  text-decoration: none;
+  color: #09393e;
+}
+
+.intro {
+  color: #09393e;
+}
+
+.box-link {
+  border-top: solid #09393e;
+  border-bottom: solid #09393e;
+  max-width: 100px;
+  text-align: center;
+}
+
+a:hover {
+  color: #fee29d;
+  font-weight: bold;
+}
