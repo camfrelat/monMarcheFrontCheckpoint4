@@ -10,6 +10,8 @@ import { Vegetable } from '../shared/models/Vegetable.model';
 })
 export class VegetableListComponent implements OnInit {
   vegies: Vegetable[];
+  activeIndex = 0;
+  vegieSelected = false;
 
   constructor(
     private titleService: Title,
@@ -24,6 +26,11 @@ export class VegetableListComponent implements OnInit {
     this.vegetableService.getAllVegies().subscribe((vegetables) => {
       this.vegies = vegetables;
     });
+  }
+
+  onSelect(i: number) {
+    this.vegieSelected = !this.vegieSelected;
+    this.activeIndex = i;
   }
 
   // Set page title
