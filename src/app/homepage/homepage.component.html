@@ -1,6 +1,6 @@
 <div class="image"></div>
 <div class="container">
-  <p class="intro text-center mt-3 mb-5">
+  <p class="dark-green text-center mt-3 mb-5">
     Découvrez les légumes du moment et réalisez vos listes de courses pour le
     marché ! Pour réaliser des paniers sains et plus responsables...
   </p>
@@ -14,19 +14,25 @@
   <div class="text-center my-3">
     <button
       type="button"
-      class="mb-3"
+      class="dark-green mb-3"
       mat-raised-button
       (click)="getRandomVegie()"
     >
       Légume roulette
       <mat-icon>refresh</mat-icon>
     </button>
-    <div class="d-flex justify-content-center" *ngIf="showSpinner">
-      <mat-progress-spinner [color]="color" [mode]="mode" [diameter]="diameter">
-      </mat-progress-spinner>
-    </div>
-    <div *ngIf="showRandomVegie" class="box-random">
-      Le saviez-vous ? {{ randomVegie?.description }}
+    <div class="d-flex justify-content-center">
+      <div *ngIf="showSpinner">
+        <mat-progress-spinner
+          [color]="color"
+          [mode]="mode"
+          [diameter]="diameter"
+        >
+        </mat-progress-spinner>
+      </div>
+      <div *ngIf="showRandomVegie" class="box-random">
+        Le saviez-vous ? {{ randomVegie?.description }}
+      </div>
     </div>
   </div>
 </div>

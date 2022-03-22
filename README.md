@@ -1,27 +1,131 @@
-# MonMarcheFront
+<div id="top"></div>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.9.
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/camfrelat/monMarcheFrontCheckpoint4">
+    <img src="src/assets/images/logo.png" alt="Logo" height="80">
+  </a>
 
-## Development server
+<h3 align="center">Mon marché - Checkpoint 4</h3>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+  <p align="center">
+    project_description
+    <br />
+    <a href="https://github.com/camfrelat/monMarcheFrontCheckpoint4"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/camfrelat/monMarcheFrontCheckpoint4">View Demo</a>
+    ·
+    <a href="https://github.com/camfrelat/monMarcheFrontCheckpoint4/issues">Report Bug</a>
+ 
+  </p>
+</div>
 
-## Code scaffolding
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#acknowledgments">Acknowledgments</a></li>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+  </ol>
+</details>
 
-## Build
+<!-- ABOUT THE PROJECT -->
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## About The Project
 
-## Running unit tests
+<img src="src/assets/images/homepageScreen.png" alt="screenshot" >
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-## Running end-to-end tests
+### Built With
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- [Angular](https://angular.io/)
+- [Bootstrap](https://getbootstrap.com)
 
-## Further help
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<!-- GETTING STARTED -->
+
+## Getting Started
+
+To get a local copy up and running follow these steps.
+
+### Prerequisites
+
+- npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone git@github.com:camfrelat/monMarcheFrontCheckpoint4.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Launch application on localhost
+
+   ```sh
+   ng s -o
+   ```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- USAGE EXAMPLES -->
+
+## Usage
+
+'Mon marché' is a responsive application to help customers make shopping lists to got to the farmer's market ! The application display a list of vegetables and allows users to create several shopping lists. The lists can be modified and deleted. 'Mon marché' offers a vegie roulette on the homepage to get random informations about vegies.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- ROADMAP -->
+
+## Roadmap for next features
+
+- [ ] Add seasons and more vegies
+- [ ] Add fruits
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- CONTACT -->
+
+## Contact
+
+Camille FRELAT - [LinkedIn](https://www.linkedin.com/in/camillefrelat) - [GitHub](https://github.com/camfrelat)<br>
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGMENTS -->
+
+## Acknowledgments
+
+- [Angular Material](https://material.angular.io/)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+
+[product-screenshot]: src/assets/images/homepageScreen.png
