@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatInput } from '@angular/material/input';
+import { ThemePalette } from '@angular/material/core';
 import { MatSelect } from '@angular/material/select';
 import { Title } from '@angular/platform-browser';
 import { ShopList } from '../shared/models/ShopList.model';
@@ -65,7 +65,7 @@ export class ShoppingListComponent implements OnInit {
   }
 
   editMode(i: number) {
-    this.editTitle = true;
+    this.editTitle = !this.editTitle;
     this.activeIndex = i;
   }
 
@@ -91,7 +91,13 @@ export class ShoppingListComponent implements OnInit {
     if (!vegie) {
       return;
     }
-    currentList.vegetables.push(vegie);
+    // Check if vegie is already in the list
+    const index = currentList.vegetables.findIndex(
+      (object) => object.id === vegie.id
+    );
+    if (index === -1) {
+      currentList.vegetables.push(vegie);
+    }
 
     this.shopListService.updateList(id, currentList).subscribe((list) => {
       //replace shoppingList in array

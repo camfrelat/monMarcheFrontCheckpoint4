@@ -6,16 +6,13 @@
   background-size: cover;
 }
 
+/* Links */
 a {
   text-decoration: none;
   color: #09393e;
   font-family: "Rajdhani", sans-serif;
   font-weight: bold;
   text-transform: uppercase;
-}
-
-.intro {
-  color: #09393e;
 }
 
 .box-link {
@@ -30,6 +27,7 @@ a:hover {
   font-weight: bold;
 }
 
+/* Random vegies */
 .box-random {
   max-width: 400px;
 }

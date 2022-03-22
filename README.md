@@ -7,7 +7,7 @@
     <img src="src/assets/images/logo.png" alt="Logo" height="80">
   </a>
 
-<h3 align="center">p3_jaffrebook</h3>
+<h3 align="center">Mon marché - Checkpoint 4</h3>
 
   <p align="center">
     project_description
