@@ -2,8 +2,8 @@
   <h1 class="my-3">Mes listes</h1>
   <div class="my-4">
     <h3 class="mb-3">Ajouter une nouvelle liste</h3>
-    <form class="example-form" [formGroup]="listForm" (ngSubmit)="addList()">
-      <mat-form-field class="example-full-width" appearance="fill">
+    <form [formGroup]="listForm" (ngSubmit)="addList()">
+      <mat-form-field appearance="fill">
         <mat-label>Ajouter un titre</mat-label>
         <input matInput placeholder="Ex. Quotidien" formControlName="name" />
       </mat-form-field>
