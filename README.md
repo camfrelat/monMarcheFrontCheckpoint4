@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/camfrelat/monMarcheFrontCheckpoint4">
-    <img src="src/assets/images/logo.png" alt="Logo" width="80" height="80">
+    <img src="src/assets/images/logo.png" alt="Logo" height="80">
   </a>
 
 <h3 align="center">p3_jaffrebook</h3>
