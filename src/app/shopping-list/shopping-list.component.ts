@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatInput } from '@angular/material/input';
 import { MatSelect } from '@angular/material/select';
 import { Title } from '@angular/platform-browser';
 import { ShopList } from '../shared/models/ShopList.model';
@@ -17,6 +18,9 @@ export class ShoppingListComponent implements OnInit {
   vegies: Vegetable[];
   shoppingLists: ShopList[];
   selectedvegie!: number;
+  listTitleForm: FormGroup;
+  editTitle = false;
+  activeIndex = 0;
 
   constructor(
     private titleService: Title,
@@ -29,6 +33,11 @@ export class ShoppingListComponent implements OnInit {
 
     this.listForm = this.fb.group({
       name: ['', Validators.required],
+      vegetables: [[]],
+    });
+
+    this.listTitleForm = this.fb.group({
+      name: [''],
       vegetables: [[]],
     });
   }
@@ -47,8 +56,30 @@ export class ShoppingListComponent implements OnInit {
 
   // Add new shopping list with title
   addList() {
-    this.shopListService.createList(this.listForm.value).subscribe();
-    this.loadLists();
+    (async () => {
+      this.shopListService.createList(this.listForm.value).subscribe();
+
+      await this.delay(400);
+      this.loadLists();
+    })();
+  }
+
+  editMode(i: number) {
+    this.editTitle = true;
+    this.activeIndex = i;
+  }
+
+  edit(id: number) {
+    this.shopListService
+      .updateList(id, this.listTitleForm.value)
+      .subscribe((list) => {
+        //replace shoppingList in array
+        const index = this.shoppingLists.findIndex(
+          (element) => element.id === id
+        );
+        this.shoppingLists[index] = list;
+      });
+    this.editTitle = false;
   }
 
   addVegieOnSelect(id: number, event: MatSelect) {
@@ -63,7 +94,7 @@ export class ShoppingListComponent implements OnInit {
     currentList.vegetables.push(vegie);
 
     this.shopListService.updateList(id, currentList).subscribe((list) => {
-      //replace list in array
+      //replace shoppingList in array
       const index = this.shoppingLists.findIndex(
         (element) => element.id === id
       );
@@ -112,5 +143,10 @@ export class ShoppingListComponent implements OnInit {
   // Set page title
   setTitle(newTitle: string) {
     this.titleService.setTitle(newTitle);
+  }
+
+  // Set delay
+  delay(ms: number) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 }
