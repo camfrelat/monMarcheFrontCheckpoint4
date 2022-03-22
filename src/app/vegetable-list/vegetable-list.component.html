@@ -3,7 +3,7 @@
 
   <div class="">
     <ul *ngFor="let vegie of vegies; let i = index">
-      <li (click)="onSelect(i)">{{ vegie.name }}</li>
+      <li class="title" (click)="onSelect(i)">{{ vegie.name }}</li>
       <div *ngIf="vegieSelected && i === this.activeIndex">
         Info : {{ vegie.description }}
       </div>
