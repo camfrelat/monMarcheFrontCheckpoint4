@@ -1,0 +1,8 @@
+.box-list {
+  background-color: #fee29d;
+  max-width: 400px;
+}
+
+.title:hover {
+  color: gray;
+}
