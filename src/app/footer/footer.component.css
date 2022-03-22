@@ -1,3 +1,16 @@
 .footer {
   background-color: #09393e;
+  height: 80px;
+
+  padding-top: 1rem;
+}
+
+.footerText {
+  text-decoration: none;
+  color: #ceecd6;
+}
+
+.footerText:hover {
+  text-decoration: underline;
+  font-weight: bold;
 }

@@ -5,10 +5,28 @@
     marché ! Pour réaliser des paniers sains et plus responsables...
   </p>
 
-  <div class="text-center mb-5">
+  <div class="text-center mb-4">
     <a class="box-link" [routerLink]="['/vegetables']"> Legumes</a>
   </div>
-  <div class="text-center">
-    <a class="box-link" [routerLink]="['/lists']"> Mes listes</a>
+  <div class="text-center mb-4">
+    <a class="box-link" [routerLink]="['/lists']"> Mes listes </a>
+  </div>
+  <div class="text-center my-3">
+    <button
+      type="button"
+      class="mb-3"
+      mat-raised-button
+      (click)="getRandomVegie()"
+    >
+      Légume roulette
+      <mat-icon>refresh</mat-icon>
+    </button>
+    <div class="d-flex justify-content-center" *ngIf="showSpinner">
+      <mat-progress-spinner [color]="color" [mode]="mode" [diameter]="diameter">
+      </mat-progress-spinner>
+    </div>
+    <div *ngIf="showRandomVegie" class="box-random">
+      Le saviez-vous ? {{ randomVegie?.description }}
+    </div>
   </div>
 </div>

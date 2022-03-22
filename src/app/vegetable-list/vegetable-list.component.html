@@ -1,9 +1,10 @@
 <div class="container">
-  <h1>Tous les légumes</h1>
+  <h1 class="text-center mt-3">Tous les légumes</h1>
 
-  <div>
+  <div class="">
     <ul *ngFor="let vegie of vegies">
       <li>{{ vegie.name }}</li>
+      <div>Info : {{ vegie.description }}</div>
     </ul>
   </div>
 </div>

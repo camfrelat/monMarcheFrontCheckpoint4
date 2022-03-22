@@ -14,3 +14,13 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+h1 {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.dark-green {
+  color: #09393e;
+}
